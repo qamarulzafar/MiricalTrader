@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from database import engine, Base
+# import models first so SQLAlchemy knows about mapped tables
+import models
 
 # create tables for development convenience (Alembic will be used later)
 Base.metadata.create_all(bind=engine)
